@@ -1,0 +1,32 @@
+*{
+	padding: 0;
+	margin: 5px;
+	box-sizing: border-box;
+}
+
+main{
+	margin: 15px;
+}
+
+.red-text{
+	color: red;
+}
+
+form{
+	padding: 14px;
+}
+
+fieldset{
+	padding: 10px;
+	border: none;
+	border: 1px solid black;
+}
+
+input[type="submit"]{
+	padding: 10px 15px;
+	outline: none;
+	background-color: white;
+	border: none;
+	cursor: pointer;
+	box-shadow: 1px 1px 7px -1px black;
+}

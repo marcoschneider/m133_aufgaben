@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Validate Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form" method="post" action="">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+
+        <div class="form-group">
+          <label for="number">Nummer</label>
+          <input type="text" class="form-control" id="number">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+
+        <div class="form-group">
+          <label for="textarea">Beschreibung</label>
+          <textarea class="form-control" id="textarea" rows="3"></textarea>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" id="radio_schulintern" name="customRadio" class="custom-control-input" value="">
+          <label class="custom-control-label" for="radio_schulintern">Schulintern</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" id="radio_public" name="customRadio" class="custom-control-input" value="">
+          <label class="custom-control-label" for="radio_public">Öffentlich</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" id="radio_class" name="customRadio" class="custom-control-input" value="">
+          <label class="custom-control-label" for="radio_class">Klasse</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" id="radio_private" name="customRadio" class="custom-control-input" value="">
+          <label class="custom-control-label" for="radio_private">Privat</label>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input" id="apa" value="">
+          <label class="custom-control-label" for="apa">AP16/a</label>
+        </div>
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input" id="apb" value="">
+          <label class="custom-control-label" for="apb">AP16/b</label>
+        </div>
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input" id="apc" value="">
+          <label class="custom-control-label" for="apc">AP16/c</label>
+        </div>
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" class="custom-control-input" id="apd" value="">
+          <label class="custom-control-label" for="apd">AP16/d</label>
+        </div>
+
+        <br>
+        <br>
+
+        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+
+
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
