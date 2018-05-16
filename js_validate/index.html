@@ -4,29 +4,38 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
     <title>Validate Form</title>
+    <style>
+      form{
+        margin-top: 50px;
+      }
+
+      .red-text{
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <form id="form" method="post" action="">
+      <form name="first_form" id="form" method="post" action="">
 
         <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name">
+          <label for="name">Name<span>*</span></label>
+          <input type="text" class="form-control" id="name" name="name">
         </div>
 
         <div class="form-group">
-          <label for="number">Nummer</label>
-          <input type="text" class="form-control" id="number">
+          <label for="number">Nummer<span>*</span></label>
+          <input type="text" class="form-control" id="number" name="number" >
         </div>
 
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password">
+          <label for="password">Password<span>*</span></label>
+          <input type="password" class="form-control" id="password" name="password" >
         </div>
 
         <div class="form-group">
-          <label for="textarea">Beschreibung</label>
-          <textarea class="form-control" id="textarea" rows="3"></textarea>
+          <label for="textarea">Beschreibung<span>*</span></label>
+          <textarea class="form-control" id="textarea" name="textarea" rows="3"></textarea>
         </div>
 
         <div class="custom-control custom-radio custom-control-inline">
@@ -72,8 +81,13 @@
         <button id="submit" type="submit" class="btn btn-primary">Submit</button>
       </form>
 
+      <div id="errors">
 
+      </div>
 
+      <div id="form_output">
+
+      </div>
 
     </div>
     <script type="text/javascript" src="script.js"></script>

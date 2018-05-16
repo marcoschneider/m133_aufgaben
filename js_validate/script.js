@@ -1,61 +1,62 @@
 document.onreadystatechange = function () {
   if(document.readyState === "complete") {
 
-    var errors = [];
-    var values = [];
+    let values = [];
+    let errors = [];
+    let formValues = [];
 
-    var form = document.getElementById("form");
-    var name = document.getElementById("name").value;
-    var number = document.getElementById("number").value;
-    var password = document.getElementById("password").value;
-    var textarea = document.getElementById("textarea").value;
-
-    /*var difficulty = document.getElementById("advanced").value;
-    var newsletter = document.getElementById("newsletter").value;*/
-    var submit = document.getElementById("submit");
-
-    if (password !== "") {
-      values['password'] = password;
-    } else {
-      errors['password'] = "Password wurde nicht ausgefüllt";
-    }
+    let form = document.getElementById("form");
 
     function validateRadio (radios){
-      for (i = 0; i < radios.length; ++ i){
-        if (radios [i].checked) return true;
+      for (let i = 0; i < radios.length; ++ i){
+        if (radios[i].checked) return true;
       }
       return false;
     }
 
     function validateText(text){
-      for (let i = 0; i < text.length; i++) {
-        if(text[i].value) return text[i].value;
+
+      if(text.value !== "") {
+        values.push(text.value);
+      }else{
+        //alert("Bitte alle Textfelder ausfüllen");
+        errors.push('Bitte das Feld '+text.previousElementSibling.innerHTML +' ausfüllen.');
+      }
+    }
+
+    function displayValues(valuesArray){
+
+    }
+
+    function displayErrors(errorsArray) {
+      var errorDiv = document.getElementById("errors");
+      console.log(errorDiv);
+      for (let i = 0; i < errorsArray.length; i++){
+        errorDiv.outerHTML = '<p class="red-text">'+ errorsArray[i] +'</p>';
       }
       return false;
     }
 
     form.onsubmit = function() {
-      let form = document.forms[0];
-      for (let i = 0; i < form.length; i++){
-        console.log(form[i].getAttribute("type"));
-        switch (form[i].getAttribute("type")){
-          case 'text':
-            values['text'] = validateText(form[i]);
-            break;
-          case 'password':
-            values['password'] = validateText(form[i]);
-            break;
-          case 'radio':
-            values['radios'] = validateRadio(form[i]);
-            break;
-        }
-      }
-      return values;
-    };
+      let form = document.forms["first_form"];
+      let radios = form["customRadio"];
 
-   /* form.addEventListener("submit", function () {
-      console.log(document.forms);
+      validateText(form["name"]);
+      validateText(form["number"]);
+      validateText(form["password"]);
+
+      console.log(values);
+      console.log(errors);
+      console.log(validateRadio(radios));
+
+      //displayValues(values);
+
+      if(values.length > 0){
+        values = [];
+      }else if(errors.length > 0){
+        displayErrors(errors);
+      }
       return false;
-    });*/
+    };
   }
 };
