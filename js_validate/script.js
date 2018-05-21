@@ -1,25 +1,28 @@
 document.onreadystatechange = function () {
   if(document.readyState === "complete") {
 
-    let values = [];
+    let values = {};
     let errors = [];
-    let formValues = [];
 
     let form = document.getElementById("form");
 
     function validateRadio (radios){
       for (let i = 0; i < radios.length; ++ i){
-        if (radios[i].checked) return true;
+        if (radios[i].checked) values["radio"] = radios[i].value;
       }
       return false;
     }
+    
+    function validateCheckbox (checkboxen) {
+      for (let i = 0; i < checkboxen.length; i++){
+        if (checkboxen[i].checked) values["classes"] = checkboxen[i].value;
+      }
+    }
 
-    function validateText(text){
-
+    function validateText(text, nameOfField){
       if(text.value !== "") {
-        values.push(text.value);
+        values[nameOfField] = text.value;
       }else{
-        //alert("Bitte alle Textfelder ausfüllen");
         errors.push('Bitte das Feld '+text.previousElementSibling.innerHTML +' ausfüllen.');
       }
     }
@@ -30,33 +33,34 @@ document.onreadystatechange = function () {
 
     function displayErrors(errorsArray) {
       var errorDiv = document.getElementById("errors");
-      console.log(errorDiv);
+      //console.log(errorDiv);
       for (let i = 0; i < errorsArray.length; i++){
-        errorDiv.outerHTML = '<p class="red-text">'+ errorsArray[i] +'</p>';
+        errorDiv.innerHTML = '<p class="red-text">'+ errorsArray[i] +'</p>';
       }
       return false;
     }
 
-    form.onsubmit = function() {
+    form.onsubmit = function () {
       let form = document.forms["first_form"];
       let radios = form["customRadio"];
+      let checkboxen = form[""];
 
-      validateText(form["name"]);
-      validateText(form["number"]);
-      validateText(form["password"]);
-
-      console.log(values);
-      console.log(errors);
-      console.log(validateRadio(radios));
-
-      //displayValues(values);
+      validateText(form["name"], "name");
+      validateText(form["number"], "number");
+      validateText(form["password"], "password");
+      validateText(form["textarea"], "textarea");
+      validateRadio(radios);
+      //validateRadio();
+      console.log(document.forms["first_form"]["customCheckbox"]);
 
       if(values.length > 0){
         values = [];
       }else if(errors.length > 0){
         displayErrors(errors);
       }
-      return false;
+      return (false);
     };
+    console.log(values);
+    console.log(errors);
   }
 };
