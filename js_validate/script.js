@@ -1,22 +1,24 @@
 document.onreadystatechange = function () {
   if(document.readyState === "complete") {
 
-    let values = {};
-    let errors = [];
+    var values = {};
+    var checkboxValues = [];
+    var errors = [];
 
-    let form = document.getElementById("form");
+    var form = document.getElementById("form");
 
-    function validateRadio (radios){
-      for (let i = 0; i < radios.length; ++ i){
-        if (radios[i].checked) values["radio"] = radios[i].value;
+    function validateRadio (radios, radioName){
+      for (var i = 0; i < radios.length; ++ i){
+        if (radios[i].checked) values[radioName] = radios[i].value;
       }
       return false;
     }
     
     function validateCheckbox (checkboxen) {
-      for (let i = 0; i < checkboxen.length; i++){
-        if (checkboxen[i].checked) values["classes"] = checkboxen[i].value;
+      for (var i = 0; i < checkboxen.length; i++){
+        if (checkboxen[i].checked) checkboxValues[i] = checkboxen[i].value;
       }
+      return false;
     }
 
     function validateText(text, nameOfField){
@@ -27,31 +29,38 @@ document.onreadystatechange = function () {
       }
     }
 
-    function displayValues(valuesArray){
-
+    function displayValues(valuesArray, checkboxValues){
+      document.getElementById("out_name").innerText = valuesArray.name;
+      document.getElementById("out_number").innerText = valuesArray.number;
+      document.getElementById("out_password").innerText = valuesArray.password;
+      document.getElementById("description").innerText = valuesArray.textarea;
+      document.getElementById("out_radio").innerText = valuesArray.radio;
+      for (var i = 0; i < checkboxValues.length; i++){
+        document.getElementById("out_classes").innerHTML += '<p class="d-inline mr-2">'+checkboxValues[i]+', </p>';
+      }
     }
 
     function displayErrors(errorsArray) {
       var errorDiv = document.getElementById("errors");
       //console.log(errorDiv);
-      for (let i = 0; i < errorsArray.length; i++){
-        errorDiv.innerHTML = '<p class="red-text">'+ errorsArray[i] +'</p>';
+      for (var i = 0; i < errorsArray.length; i++){
+        errorDiv.innerHTML = '<p class="text-red">'+ errorsArray[i] +'</p>';
       }
       return false;
     }
 
     form.onsubmit = function () {
-      let form = document.forms["first_form"];
-      let radios = form["customRadio"];
-      let checkboxen = form[""];
+      var form = document.forms["first_form"];
+      var radios = form["customRadio"];
+      var checkboxen = form["customCheckbox"];
 
       validateText(form["name"], "name");
       validateText(form["number"], "number");
       validateText(form["password"], "password");
       validateText(form["textarea"], "textarea");
-      validateRadio(radios);
-      //validateRadio();
-      console.log(document.forms["first_form"]["customCheckbox"]);
+      validateRadio(radios, "radio");
+      validateCheckbox(checkboxen);
+      displayValues(values, checkboxValues);
 
       if(values.length > 0){
         values = [];
@@ -60,7 +69,6 @@ document.onreadystatechange = function () {
       }
       return (false);
     };
-    console.log(values);
-    console.log(errors);
+    console.log(errrors);
   }
 };

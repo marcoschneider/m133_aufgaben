@@ -5,14 +5,6 @@
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
     <title>Validate Form</title>
     <style>
-      form{
-        margin-top: 50px;
-      }
-
-      .red-text{
-        color: red;
-      }
-
       #errors{
         padding-top: 50px;
       }
@@ -20,7 +12,7 @@
   </head>
   <body>
     <div class="container">
-      <form name="first_form" id="form" method="post" action="">
+      <form class="mt-5" name="first_form" id="form" method="post" action="">
 
         <div class="form-group">
           <label for="name">Name<span>*</span></label>
@@ -43,19 +35,19 @@
         </div>
 
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="radio_schulintern" name="customRadio" class="custom-control-input" value="schulintern">
+          <input type="radio" id="radio_schulintern" name="customRadio" class="custom-control-input" value="Schulintern">
           <label class="custom-control-label" for="radio_schulintern">Schulintern</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="radio_public" name="customRadio" class="custom-control-input" value="public">
+          <input type="radio" id="radio_public" name="customRadio" class="custom-control-input" value="Öffentlich">
           <label class="custom-control-label" for="radio_public">Öffentlich</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="radio_class" name="customRadio" class="custom-control-input" value="class">
+          <input type="radio" id="radio_class" name="customRadio" class="custom-control-input" value="Klasse">
           <label class="custom-control-label" for="radio_class">Klasse</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="radio_private" name="customRadio" class="custom-control-input" value="private">
+          <input type="radio" id="radio_private" name="customRadio" class="custom-control-input" value="Privat">
           <label class="custom-control-label" for="radio_private">Privat</label>
         </div>
 
@@ -63,19 +55,19 @@
         <br>
 
         <div class="custom-control custom-checkbox custom-control-inline">
-          <input type="checkbox" class="custom-control-input" id="apa" value="" name="customCheckbox">
+          <input type="checkbox" class="custom-control-input" id="apa" value="AP16/a" name="customCheckbox">
           <label class="custom-control-label" for="apa">AP16/a</label>
         </div>
         <div class="custom-control custom-checkbox custom-control-inline">
-          <input type="checkbox" class="custom-control-input" id="apb" value="" name="customCheckbox">
+          <input type="checkbox" class="custom-control-input" id="apb" value="AP16/b" name="customCheckbox">
           <label class="custom-control-label" for="apb">AP16/b</label>
         </div>
         <div class="custom-control custom-checkbox custom-control-inline">
-          <input type="checkbox" class="custom-control-input" id="apc" value="" name="customCheckbox">
+          <input type="checkbox" class="custom-control-input" id="apc" value="AP16/c" name="customCheckbox">
           <label class="custom-control-label" for="apc">AP16/c</label>
         </div>
         <div class="custom-control custom-checkbox custom-control-inline">
-          <input type="checkbox" class="custom-control-input" id="apd" value="" name="customCheckbox">
+          <input type="checkbox" class="custom-control-input" id="apd" value="AP16/d" name="customCheckbox">
           <label class="custom-control-label" for="apd">AP16/d</label>
         </div>
 
@@ -92,28 +84,28 @@
       <div id="form_output">
         <div class="row">
           <div class="col-12">
-            <p>Name:</p>
-            <p id="out_name"></p>
+            <p class="d-inline mr-2">Name:</p>
+            <p class="d-inline" id="out_name"></p>
           </div>
           <div class="col-12">
-            <p>Nummer:</p>
-            <p id="out_number"></p>
+            <p class="d-inline mr-2">Nummer:</p>
+            <p class="d-inline" id="out_number"></p>
           </div>
           <div class="col-12">
-            <p>Password:</p>
-            <p id="out_password"></p>
+            <p class="d-inline mr-2">Password:</p>
+            <p class="d-inline" id="out_password"></p>
           </div>
           <div class="col-12">
-            <p>Beschreibung:</p>
-            <p id="description"></p>
+            <p class="d-inline mr-2">Beschreibung:</p>
+            <p class="d-inline" id="description"></p>
           </div>
           <div class="col-12">
-            <p>Radios:</p>
-            <p id="out_radio"></p>
+            <p class="d-inline mr-2">Radios:</p>
+            <p class="d-inline" id="out_radio"></p>
           </div>
           <div class="col-12">
-            <p>Klassen:</p>
-            <p id="out_classes"></p>
+            <p class="d-inline mr-2">Klassen:</p>
+            <p class="d-inline" id="out_classes"></p>
           </div>
         </div>
       </div>
